@@ -19,4 +19,14 @@ jobs:
         with:
           name: logs
           path: logs/result.txt   
+
+        - name: Pyraider
+          run: |
+           pip install pyraider
+           pyraider check -f App/app/flask/requirements.txt > logs/result-pyraider.txt
+
+        - uses: actions/upload-artifact@v2
+          with:
+          name: logs
+          path: logs/result.json
           
