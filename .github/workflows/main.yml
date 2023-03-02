@@ -22,7 +22,7 @@ jobs:
         
       - run: |
           mkdir -p logs/
-          echo 'app/' > logs/exclude.txt
+          echo './Environment/App/db' > logs/exclude.txt
       
       
       - uses: max/secret-scan@master
@@ -40,7 +40,7 @@ jobs:
       - name: Safety
         run: |
          pip install safety
-         safety check -r app/web/requirements.txt > logs/result.txt
+         safety check -r ./Environment/App/app/web/requirements.txt > logs/result.txt
       - uses: actions/upload-artifact@v2
         with:
           name: logs
