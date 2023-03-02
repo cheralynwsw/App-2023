@@ -45,12 +45,13 @@ jobs:
         with:
           name: logs
           path: logs/result.json
-sast:
-  needs:
+          
+  sast:
+    needs:
     - build
     - sca
-  runs-on: ubuntu-latest
-  steps:
+    runs-on: ubuntu-latest
+    steps:
     - uses: actions/checkout@v2
     - run: |
         mkdir -p logs/      
@@ -62,3 +63,4 @@ sast:
       with:
         name: logs
         path: logs/output.json
+          
