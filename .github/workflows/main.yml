@@ -119,7 +119,7 @@ jobs:
           file: ./Environment/App/app/Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           push: true
-          tags: sristisravan/tic4302-demo:latest
+          tags: cheralyn/tic4302-app-2023:latest
 
   container-scan:
     needs: [deploy]
@@ -128,7 +128,7 @@ jobs:
      - name: Run Dockle
        uses: erzz/dockle-action@v1.1.1
        with:
-         image: sristisravan/tic4302-demo
+         image: cheralyn/tic4302-app-2023
          report-format: json
          report-name: dockle-report
         
